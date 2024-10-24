@@ -7,11 +7,11 @@ class DisplayStrategy(ABC):
         pass
 
 
-class ConsoleDisplayStrategy(DisplayStrategy):
+class ConsoleDisplay(DisplayStrategy):
     def display(self, content: str) -> None:
         print(content)
 
 
-class ReverseDisplayStrategy(DisplayStrategy):
+class ReverseDisplay(DisplayStrategy):
     def display(self, content: str) -> None:
         print(content[::-1])

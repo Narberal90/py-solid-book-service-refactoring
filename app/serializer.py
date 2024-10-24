@@ -9,12 +9,12 @@ class SerializationStrategy(ABC):
         pass
 
 
-class JSONSerializationStrategy(SerializationStrategy):
+class JSONSerialization(SerializationStrategy):
     def serialize(self, title: str, content: str) -> str:
         return json.dumps({"title": title, "content": content})
 
 
-class XMLSerializationStrategy(SerializationStrategy):
+class XMLSerialization(SerializationStrategy):
     def serialize(self, title: str, content: str) -> str:
         root = ElementTree.Element("book")
         title_element = ElementTree.SubElement(root, "title")

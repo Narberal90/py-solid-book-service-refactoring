@@ -7,13 +7,13 @@ class PrintStrategy(ABC):
         pass
 
 
-class ConsolePrintStrategy(PrintStrategy):
+class ConsolePrint(PrintStrategy):
     def print(self, title: str, content: str) -> None:
         print(f"Printing the book: {title}...")
         print(content)
 
 
-class ReversePrintStrategy(PrintStrategy):
+class ReversePrint(PrintStrategy):
     def print(self, title: str, content: str) -> None:
         print(f"Printing the book in reverse: {title}...")
         print(content[::-1])

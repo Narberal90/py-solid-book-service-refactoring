@@ -1,15 +1,15 @@
 from app.book import Book
 from app.display import (
-    ReverseDisplayStrategy,
-    ConsoleDisplayStrategy
+    ReverseDisplay,
+    ConsoleDisplay
 )
 from app.print import (
-    ReversePrintStrategy,
-    ConsolePrintStrategy
+    ReversePrint,
+    ConsolePrint
 )
 from app.serializer import (
-    XMLSerializationStrategy,
-    JSONSerializationStrategy
+    XMLSerialization,
+    JSONSerialization
 )
 
 
@@ -17,21 +17,21 @@ def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
     for cmd, method_type in commands:
         if cmd == "display":
             if method_type == "reverse":
-                strategy = ReverseDisplayStrategy()
+                strategy = ReverseDisplay()
             else:
-                strategy = ConsoleDisplayStrategy()
+                strategy = ConsoleDisplay()
             book.display(strategy)
         elif cmd == "print":
             if method_type == "reverse":
-                strategy = ReversePrintStrategy()
+                strategy = ReversePrint()
             else:
-                strategy = ConsolePrintStrategy()
+                strategy = ConsolePrint()
             book.print(strategy)
         elif cmd == "serialize":
             if method_type == "xml":
-                strategy = XMLSerializationStrategy()
+                strategy = XMLSerialization()
             else:
-                strategy = JSONSerializationStrategy()
+                strategy = JSONSerialization()
             return book.serialize(strategy)
 
 
